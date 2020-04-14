@@ -1,46 +1,51 @@
-/*********************************
+/****************
  * NODE MODULES
- ********************************/
+ ****************/
 
-// Require needed modules
+//fillout barebones statement 
+
 let express = require('express')
 let layouts = require('express-ejs-layouts')
 
-// Create an app instance 
-let app = express()
+//Create an express instance
+let app = express();
 
-/*********************************
- * SETTINGS / MIDDLEWARE
- ********************************/
+/**********************
+ * SERTTINGS/MIDDLEWARE
+ **********************/
 
-// Set template lang to EJS
+//set template lang to ejs 
 app.set('view engine', 'ejs')
 
-// Tell express to use the layouts module
+//tell express to use the layout modules
 app.use(layouts)
 
-// Set up static folder
+//set up static folder
 app.use(express.static('static'))
 
-/*********************************
+// decrypt the variables coming in via POST routes (from forms)
+app.use(express.urlencoded({ extended: false }))
+
+/*****************************
  * ROUTES
- ********************************/
-// Controllers
+ *****************************/
+
+//Controllers
 app.use('/auth', require('./controllers/auth'))
 
-// Create a home page route (make sure its above the wildCard)
+//create a home route
 app.get('/', (req, res) => {
     res.render('home')
 })
-// Create a wildCard (catch-all)
+
+ //create a wild card route (catch-all)
 app.get('*', (req, res) => {
-    // res.send('This matches literally anything - great spot for an error page')
     res.render('error')
 })
 
-/*********************************
+/******************
  * LISTEN
- ********************************/
+ ******************/
 
-// Pick a port to listen on
+//Pick a port to listen on 
 app.listen(3000)
