@@ -56,6 +56,8 @@ router.post('/signup', (req, res) => {
                         req.flash('error', e.message)
                     }
                 })
+                // Put the user back onto the signup form to try again
+                res.render('auth/signup', { data: req.body, alerts: req.flash() })
             }
             else {
                 // Genereic message for any other issue
