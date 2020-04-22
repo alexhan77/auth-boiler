@@ -30,7 +30,7 @@ app.use(express.urlencoded({ extended: false }))
 
 // Set up sessions 
 app.use(session({
-    secret: 'any string is fine',
+    secret: process.env.SESSION_SECRET,
     resave: false,
     saveUninitialized: true
 }))
@@ -51,6 +51,7 @@ app.use((req, res, next) => {
 
 //Controllers
 app.use('/auth', require('./controllers/auth'))
+app.use('/profile', require('./controllers/profile'))
 
 //create a home route
 app.get('/', (req, res) => {
