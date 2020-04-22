@@ -5,7 +5,9 @@
 //fillout barebones statement 
 
 let express = require('express')
+let flash = require('connect-flash')
 let layouts = require('express-ejs-layouts')
+let session = require('express-session')
 
 //Create an express instance
 let app = express();
@@ -25,6 +27,23 @@ app.use(express.static('static'))
 
 // decrypt the variables coming in via POST routes (from forms)
 app.use(express.urlencoded({ extended: false }))
+
+// Set up sessions 
+app.use(session({
+    secret: 'any string is fine',
+    resave: false,
+    saveUninitialized: true
+}))
+
+// Set up connect-flash for the flash alert messages (depends on session, order matters here)
+app.use(flash())
+
+
+// Custom middleware - make certain variables available to EJS pages through locals
+app.use((req, res, next) => {
+    res.locals.alerts = req.flash()
+    next()
+})
 
 /*****************************
  * ROUTES
