@@ -1,7 +1,8 @@
 /****************
  * NODE MODULES
  ****************/
-
+// Add in environment 
+require('dotenv').config()
 //fillout barebones statement 
 
 let express = require('express')
