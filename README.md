@@ -57,3 +57,24 @@ This is a boilerplate for an Express App with local user authentication.It exist
 | GET | `/profile/guest/:id` | View user dashboard as guest View user dashboard as guest (authorized user only) |
 
 ## Directions For Use
+
+### 1. Clone the repository, but with a different name
+
+Run the following command on the terminal 
+
+```sh
+git clone <repo_link> <new_name>
+```
+
+**For example**
+
+```sh
+git clone git@git@github.com/alexhan77/node-auth-boiler.git shiny-new-project
+```
+
+### 2. Install the modules from package.json
+
+```sh
+npm i 
+```
+
