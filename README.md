@@ -14,6 +14,7 @@ This is a boilerplate for an Express App with local user authentication.It exist
 * Materialize styling - nav and footer
 
 ## Included Models
+
 | Column | Type | Notes |
 | ----------- | ---------- | ------------------------- |
 | id | Integer | Serial primary key |
@@ -30,12 +31,14 @@ This is a boilerplate for an Express App with local user authentication.It exist
 
 ## Included Routes
 
+**Routes in index.js (main)**
+
 | Method | Path | Purpose | 
 | ------ | ----------------------- | -------------------- |
 | GET | `/` | Home Page |
 | GET | `*` | Catch-all for 404s |
 
-## Directions For Use
+**Routes in controllers/auth.js**
 
 | Method | Path | Purpose | 
 | ------ | ----------------------- | -------------------- |
@@ -44,3 +47,13 @@ This is a boilerplate for an Express App with local user authentication.It exist
 | GET | `/auth/signup` | Render signup form |
 | POST | `/auth/signup` | Process signup data |
 | GET | `/auth/logout` | Remove user from session + redirect |
+
+**Routes in controllers/profile.js**
+
+| Method | Path | Purpose | 
+| ------ | ----------------------- | -------------------- |
+| GET | `/profile/user` | Show user dashboard (authorized user only) |
+| GET | `/profile/admin` | Show admin dashboard (authorized admin only) |
+| GET | `/profile/guest/:id` | View user dashboard as guest View user dashboard as guest (authorized user only) |
+
+## Directions For Use
