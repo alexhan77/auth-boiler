@@ -78,3 +78,25 @@ git clone git@git@github.com/alexhan77/node-auth-boiler.git shiny-new-project
 npm i 
 ```
 
+### 3. Customize the new project
+
+Remove defaulty stuff. For example:
+
+* Title in `layout.ejs`
+* Logo field in the nav bar
+* Description and Repository fields in package.json
+* Remove this boilerplate's readme content
+* Switch Favicon to project-specific one (in `layout.ejs` head section)
+
+### 4. Create a new database for the new project
+
+```sh
+createdb <new_db_name>
+```
+
+**For Example**
+
+```sh
+createdb shiny_db
+```
+
