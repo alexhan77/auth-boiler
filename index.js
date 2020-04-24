@@ -13,8 +13,11 @@ let session = require('express-session')
 //Create an express instance
 let app = express();
 
+// Include passport (via the passport config file)
+let passport = require('./config/passportConfig')
+
 /**********************
- * SERTTINGS/MIDDLEWARE
+ * SETTINGS / MIDDLEWARE
  **********************/
 
 //set template lang to ejs 
@@ -39,10 +42,14 @@ app.use(session({
 // Set up connect-flash for the flash alert messages (depends on session, order matters here)
 app.use(flash())
 
+// Set up passport (depends on session; must come after it)
+app.use(passport.initialize())
+app.use(passport.session())
 
 // Custom middleware - make certain variables available to EJS pages through locals
 app.use((req, res, next) => {
     res.locals.alerts = req.flash()
+    res.locals.user = req.user
     next()
 })
 

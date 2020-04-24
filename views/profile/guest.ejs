@@ -1,0 +1,13 @@
+<h1><%= userProfile.firstname %> Visiting <%=userProfile.firstname %>'s Page!</h1>
+
+<div class="row">
+    <div class="col s4">
+        <img class="responsive-img" src="<%=userProfile.pic%>" alt="profile pic">
+    </div>
+    <div class="col s8">
+        <p><strong>Name:</strong> <%= userProfile.firstname %> <%= userProfile.lastname %></p>
+        <p>
+            <%= user.bio %>
+        </p>
+    </div>
+</div>

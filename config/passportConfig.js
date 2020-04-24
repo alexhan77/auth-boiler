@@ -1,5 +1,5 @@
 // Require environment
-require('.dotenv').config()
+require('dotenv').config()
 
 // Require node_modules 
 let passport = require('passport')
