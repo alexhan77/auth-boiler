@@ -100,3 +100,10 @@ createdb <new_db_name>
 createdb shiny_db
 ```
 
+### 5. Alter Sequelize Config file
+
+In `config/config.json`, update the database name to the one created in step 4. Other settings likely okay, but check username, password, and dialect.
+
+
+
+
