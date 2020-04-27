@@ -1,6 +1,6 @@
 {
   "development": {
-    "database": "auth-sei30",
+    "database": "dating_app",
     "host": "127.0.0.1",
     "dialect": "postgres",
     "operatorsAliases": "false"
