@@ -19,8 +19,9 @@ module.exports = (sequelize, DataTypes) => {
         isEmail: {
           msg: 'Please give a valid email address 🤡 '
         }
-    }
+    }    
   },
+  gender: DataTypes.STRING,
   password:{
       type: DataTypes.STRING,
       validate: {
@@ -50,6 +51,7 @@ module.exports = (sequelize, DataTypes) => {
   
   user.associate = function(models) {
     // associations can be defined here
+    models.user.hasMany(models.feed)
   };
 
   user.prototype.validPassword = function(typedInPassword) {

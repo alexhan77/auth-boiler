@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Auth Boilerplate</title>
+    <title>Sim.P</title>
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
     <link rel="stylesheet" href="/css/style.css">
@@ -28,13 +28,16 @@
 
             var elems2 = document.querySelectorAll('.datepicker')
             var instances2 = M.Datepicker.init(elems2, {
-                    autoClose: true,
-                    defaultDate: startDate,
-                    setDefaultDate: true,
-                    yearRange: 20,
-                    maxDate: (new Date)
+                autoClose: true,
+                defaultDate: startDate,
+                setDefaultDate: true,
+                yearRange: 20,
+                maxDate: (new Date)
             })
+            var elems3 = document.querySelectorAll('.dropdown-trigger');
+            var instances3 = M.Dropdown.init(elems3, {});
         });
-</script>
+    </script>
 </body>
+
 </html>

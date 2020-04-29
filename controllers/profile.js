@@ -1,7 +1,7 @@
 let router = require('express').Router()
 let moment = require('moment')
 let adminLogin = require('../middleware/adminLogin')
-let userLogin = require('../middleware/adminLogin')
+let userLogin = require('../middleware/userLogin')
 let db = require('../models')
 
 // Custom middleware that is ONLY applied to the routes in this file!
@@ -10,6 +10,7 @@ router.use(userLogin)
 // GET /profile/user - a normal profile for the plebs
 // NOTE: Protect this route from users who are not logged in
 router.get('/user', (req, res) => {
+    console.log('user page')
     res.render('profile/user', { moment })
 })
 

@@ -23,9 +23,9 @@ router.get('/signup', (req, res) => {
 })
 
 // POST /auth/signup
-router.post('/signup', (req, res,next) => {
+router.post('/signup', (req, res, next) => {
     
-    if (req.body.password !== req.body.password_verify) {
+    if (req.body.password != req.body.password_verify) {
         // Send a message on why things didn't work
         req.flash('error', 'Passwords do not match')
 
@@ -85,7 +85,7 @@ router.get ('/logout', (req, res) => {
     req.logout()
 
     // Tell them they've logged out and redirects to another page (the home page)
-    req.flash('success', 'Bye Bye! U clown 🤡')
+    req.flash('success', 'Bye Bye! U simp 🤡')
     res.redirect('/')
 })
 
