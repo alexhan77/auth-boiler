@@ -5,7 +5,7 @@
     <form method="POST" action="/feed/post">
         <input type="text" name="userId" value="<%=user.id%>" hidden>
         <!-- TODO: figure out to get the cloudinary link into my database -->
-        <input type="text" name="url" value="hidden>
+        <input type="text" id="pic" name="pic" value="" hidden>
         <input type="text" name="content" placeholder="bio">
         <button class="btn waves-effect waves-light" type="submit" name="action">Submit
             <i class="material-icons right">send</i>
@@ -27,17 +27,10 @@ var myWidget = cloudinary.createUploadWidget({
     if (!error && result && result.event === "success") { 
       console.log('Done! Here is the image info: ', result.info); 
       console.log(result.info.secure_url)
-      fetch("/feed/post", {
-        method: "POST",
-        body: JSON.stringify({ url: result.info.secure_url }),
-        headers: { "Content-Type": "application/json; charset=utf-8"}
-      })
-      .then((response) => {
-        picBox.textContent = result.info.secure_url
-      })
-      .catch(err => {
-        console.log(err)
-      })
+
+      // Posting it all together so it posts in the form all together
+      let pic = document.getElementById('pic')
+      pic.value = result.info.secure_url
     }
     else {
       console.log(error)

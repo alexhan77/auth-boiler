@@ -19,13 +19,9 @@ router.get('/', (req, res) => {
 
 router.post('/post', (req, res) => {
     console.log(req.body)
-    db.feed.create({
-        userId: req.body.userId,
-        pic: req.body.url,
-        content: req.body.content
-    })
+    db.feed.create(req.body)
         .then(func => {
-            res.send('This route should let users be able to post by taking data from form')
+            res.redirect('/feed')
         })
 
 })
